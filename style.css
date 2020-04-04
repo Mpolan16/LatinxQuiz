@@ -1,0 +1,23 @@
+#back {
+    color:black;
+}
+.latinxQuizTime {
+    text-align: center;
+    color:blue;
+}
+#a,
+#b,
+#c,
+#d,
+#startQuizButton{
+    color:blue;
+}
+#timer{
+    color: red;
+}
+body{
+    background-color: burlywood;
+}
+.navbar-brand{
+    background-color: rgb(255, 80, 211);
+}

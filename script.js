@@ -43,6 +43,7 @@ var questions=[
     }
 ];
 
+//rap in function!
 //hide questionPage & allDonePage
 initialPage.style.display= "block";
 questionPage.style.display= "none";
@@ -59,15 +60,15 @@ function showQuiz() {
     populateButtons();
     questionPage.style.display= "block";
 };
-
+var timerInterval;
 //on the click also start 60s timer
 function startTimer() {
-    var timerInterval = setInterval(function() {
+        timerInterval = setInterval(function() {
         secondsLeft --;
         timerEl.textContent = secondsLeft;
 
-        if (secondsLeft ===0) {
-            clearInterval(timerInterval);
+        if (secondsLeft <=0) {
+            gameOver();
         }
     },1000);
 };
@@ -85,8 +86,24 @@ function populateButtons() {
 //add 1 to index for next quetion
 function nextQuestion() {
     i++;
-    populateButtons();
-    //if i>array length then hide show all done page + capture timer score
+    if(i<questions.length){
+        populateButtons();
+    }
+    else {
+        gameOver();
+    }
+};
+
+var finalScore = document.getElementById("finalScore");
+
+function gameOver () {       
+    //go to all done with recorded time
+    initialPage.style.display= "none";
+    questionPage.style.display= "none";
+    allDonePage.style.display= "block";
+
+    finalScore.textContent=secondsLeft;
+    clearInterval(timerInterval);
 };
 
 function checkAnswer (){
@@ -123,23 +140,37 @@ function corrAnswer() {
 };
 
 function wrongAnswer() {
-    var takeTen= function(){
         secondsLeft-=10;
         timerEl.textContent = secondsLeft;
         //wrong answer message, THEN next question
         alert ("Wrong! that's 10 seconds off!");
-        console.log(takeTen);
-    }
-    takeTen();
 };
 
-// 3. (if time is <=0 then clear interval and call Game over Function=stop timer) then display new question and options and clear the message of right and wrong <message div>. then, incude if statement [if you already displayed the next question if the next question exists, else if go to 'game over' function and clear interval] shortcut: put clear interval in the game over function to not type twice.
+var submitButton = document.getElementById("submitButton");
+var userInput = document.getElementById("userInput")
 
-// 4. then it starts over and over again
+submitButton.addEventListener("click", function() {
+    //if you use
+    var input = userInput.value.trim();
+    if (input==="") {
+        return;
+    }
+    //store object in arry in local storage
+    var storeScores=[];
+    var currentStorage = JSON.parse(localStorage.getItem("scores"));
+    if (currentStorage) {
+        storeScores=currentStorage;
+    };
+    //store initials and score
+    var inputAndScore= {
+        initials: input,
+        score: secondsLeft
+    }
+    storeScores.push(inputAndScore);
 
-// 5. conditions: you loose the game is if reaches 0 or less then 0, and game ends if youve answered all the questions. 
+    localStorage.setItem("scores",JSON.stringify(storeScores));
+    //go to high scores
+    location.href="scores.html";
+}
+);
 
-//6. when came is over, hide the quiz section and show the game over section.
-
-//7. if they press the sumbit button then capture the initials they entered, if intial box empty, return. store initials and time in local storage. get what is in local sotrage (array) then push new score into array, store updated array in local stroage. store as an array of objects.
-//8. open view high scores.
