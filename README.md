@@ -8,3 +8,5 @@ It's Latinx Quiz Time!
 6. You can write your initals and your time score will save to local storage.
 7. If you click "view highscores" your name and score will be saved.
 8. You can press "clear" and all local storage clears and page reloads.
+
+https://mpolan16.github.io/Mpolan16.github.io_Homework4/
