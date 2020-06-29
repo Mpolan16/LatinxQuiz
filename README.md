@@ -1,4 +1,22 @@
-It's Latinx Quiz Time!
+# Latinx Quiz
+## Description
+
+The Latinx Quiz is a fun way to test your knowledge on the Latinx Community.
+
+## Table of Contents
+
+* [Usage](#usage)
+
+* [License](#license)
+
+* [Contributing](#contributing)
+
+* [Questions](#questions)
+
+
+## Usage
+
+https://mpolan16.github.io/LatinxQuiz/
 
 1. A timer starts and you are presented with a question.
 2. When you answer the question, you will be alerted if it is right or wrong.
@@ -9,4 +27,14 @@ It's Latinx Quiz Time!
 7. If you click "view highscores" your name and score will be saved.
 8. You can press "clear" and all local storage clears and page reloads.
 
-https://mpolan16.github.io/Mpolan16.github.io_Homework4/
+## License
+ This project is licensed under ![badge](https://img.shields.io/badge/License-MIT-blue).
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Questions
+
+![picture of developer](https://avatars3.githubusercontent.com/u/60660512?v=4)
+
+Mónica Polanco Fabián | MonicaPolancoFabian15@gmail.com
